@@ -8,9 +8,9 @@ The main source for Colombia geojson map is [MGN_MPIO_POLITICO DANE](https://www
 
 Those scrips are:
 
-- [full_import_geojson_Colombia.py](scraping_geodata\full_import_geojson_Colombia.py): Review all the web file, without downloading to reivew content.
-- [filtering_geojson_Colombia.py](scraping_geodata\filtering_geojson_Colombia.py): Works as a class to extract all data and be used by another script to filtering and manipulation.
-- [filter_departamento_geojson_COL.py](scraping_geodata\filter_departamento_geojson_COL.py): Is an semi interactive script to filtering the geojson file by "departamento" and saving the file. For now works by individual results.
+- [full_import_geojson_Colombia.py](scraping_geodata/full_import_geojson_Colombia.py): Review all the web file, without downloading to reivew content.
+- [filtering_geojson_Colombia.py](scraping_geodata/filtering_geojson_Colombia.py): Works as a class to extract all data and be used by another script to filtering and manipulation.
+- [filter_departamento_geojson_COL.py](scraping_geodata/filter_departamento_geojson_COL.py): Is an semi interactive script to filtering the geojson file by "departamento" and saving the file. For now works by individual results.
 
 ## How to use this
 
