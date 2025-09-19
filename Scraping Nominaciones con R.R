@@ -24,7 +24,10 @@ indices_temporada <- which(filas_temporada)
 filas_nominaciones <- !filas_temporada
 
 # Cree un vector de temporadas que se ajuste al número de filas de nominaciones
-temporadas <- rep(tabla$Año[indices_temporada], times = diff(c(indices_temporada, length(tabla$Año) + 1)))
+temporadas <- rep(
+  tabla$Año[indices_temporada],
+  times = diff(c(indices_temporada, length(tabla$Año) + 1))
+)
 
 # Agrega una columna "Temporada" con los valores correspondientes
 tabla$Temporada <- temporadas[seq_along(filas_nominaciones)]

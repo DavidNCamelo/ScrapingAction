@@ -1,7 +1,7 @@
 import geopandas as gpd
 
 # Archivo original con todos los municipios
-# Este archivo proviene de https://www.datos.gov.co/Geograf-a/MGN_MPIO_POLITICO/97mf-4j4h 
+# Este archivo proviene de https://www.datos.gov.co/Geograf-a/MGN_MPIO_POLITICO/97mf-4j4h
 # y https://www.arcgis.com/home/item.html?id=129f3fe8e3424cc7ba3fc19ff1522026
 # y fue descargado el 24 de junio de 2024
 archivo = "base_data/MGN_MPIO_POLITICO - copia.geojson"

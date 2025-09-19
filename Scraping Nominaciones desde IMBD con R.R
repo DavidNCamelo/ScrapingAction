@@ -8,17 +8,26 @@ pag1 <- read_html(urlImbd)
 año <- pag1 %>%
   html_elements(".ipc-metadata-list-summary-item__t") %>%
   html_text2() %>%
-  {sapply(strsplit(., " "), "[[", 1)}
+  {
+    sapply(strsplit(., " "), "[[", 1)
+  }
 
 resultado <- pag1 %>%
   html_elements(".ipc-metadata-list-summary-item__t") %>%
   html_text2() %>%
-  {sapply(strsplit(., " "), "[[", 2)}
+  {
+    sapply(strsplit(., " "), "[[", 2)
+  }
 
 premiacion <- pag1 %>%
   html_elements(".ipc-metadata-list-summary-item__t") %>%
   html_text2() %>%
-  sapply(function(x) paste(strsplit(x, " ")[[1]][3:length(strsplit(x, " ")[[1]])], collapse = " "))
+  sapply(function(x) {
+    paste(
+      strsplit(x, " ")[[1]][3:length(strsplit(x, " ")[[1]])],
+      collapse = " "
+    )
+  })
 
 categoria <- pag1 %>%
   html_elements(".ipc-metadata-list-summary-item__li.awardCategoryName") %>%

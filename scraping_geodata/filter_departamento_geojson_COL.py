@@ -1,11 +1,11 @@
-''' 
+"""
 Created By David Camelo on 03/09/2025
 Helped by ChatGPT
 
 Script to extract public Colombia geojson shape
 wihtout directly downloading dependency
-Implementing a class and selecting segments 
-'''
+Implementing a class and selecting segments
+"""
 
 # Required Libraries
 import geopandas as gpd
@@ -19,7 +19,9 @@ start_time = time.time()
 
 # Console args
 parser = argparse.ArgumentParser()
-parser.add_argument("--departamento", type=str, required=True, help="Nombre del departamento a filtrar")
+parser.add_argument(
+    "--departamento", type=str, required=True, help="Nombre del departamento a filtrar"
+)
 args = parser.parse_args()
 
 # Element to filter

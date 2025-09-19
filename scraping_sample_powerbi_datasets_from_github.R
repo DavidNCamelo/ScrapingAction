@@ -5,18 +5,22 @@ library(readxl)
 
 # Es posible cambiar de carpetas a usar
 # Después de main/
-FOLDER <-  c('AdventureWorks%20Sales%20Sample', 'powerbi-service-samples')
+FOLDER <- c('AdventureWorks%20Sales%20Sample', 'powerbi-service-samples')
 
 # Y los archivos en .xlsx
 
 FILE <- list(
   'AdventureWorks%20Sales%20Sample' = c('AdventureWorks%20Sales%20Sample.xlsx'),
-  'powerbi-service-samples' =   
-     c('Human%20Resources%20Sample-no-PV.xlsx',
-      'IT%20Spend%20Analysis%20Sample-no-PV.xlsx', 'Opportunity%20Tracking%20Sample%20no%20PV.xlsx',
-      'Procurement%20Analysis%20Sample-no-PV.xlsx', 'Retail%20Analysis%20Sample-no-PV.xlsx',
-      'Sales%20and%20Marketing%20Sample-no-PV.xlsx', 'Supplier%20Quality%20Analysis%20Sample-no-PV.xlsx')
+  'powerbi-service-samples' = c(
+    'Human%20Resources%20Sample-no-PV.xlsx',
+    'IT%20Spend%20Analysis%20Sample-no-PV.xlsx',
+    'Opportunity%20Tracking%20Sample%20no%20PV.xlsx',
+    'Procurement%20Analysis%20Sample-no-PV.xlsx',
+    'Retail%20Analysis%20Sample-no-PV.xlsx',
+    'Sales%20and%20Marketing%20Sample-no-PV.xlsx',
+    'Supplier%20Quality%20Analysis%20Sample-no-PV.xlsx'
   )
+)
 
 # Seleccionar carpeta
 selected_folder <- FOLDER[2]
@@ -41,7 +45,7 @@ GET(final_url, write_disk(temp_file, overwrite = TRUE))
 sheets <- c(excel_sheets(temp_file))
 
 # Leer una hoja específica, necesario para entorno de power bi y poder crear el modelo de datos
-df <- read_excel(temp_file, sheet = sheets[2])  # Usa el nombre exacto de la hoja
+df <- read_excel(temp_file, sheet = sheets[2]) # Usa el nombre exacto de la hoja
 
 # Ver los primeros datos
 head(df)

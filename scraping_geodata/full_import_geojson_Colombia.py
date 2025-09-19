@@ -1,10 +1,10 @@
-''' 
+"""
 Created By David Camelo on 03/09/2025
 Helped by ChatGPT
 
 Script to extract public Colombia geojson shape
-wihtout directly downloading dependency  
-'''
+wihtout directly downloading dependency
+"""
 
 # Required libraries
 import requests
@@ -18,8 +18,8 @@ params = {
     "outSR": "4326",
     "f": "geojson",
     "resultOffset": 0,
-    "resultRecordCount": 2000 # Actaully is possible will exist more records
-                                # Is important considerate the total of "Municipios"
+    "resultRecordCount": 2000,  # Actaully is possible will exist more records
+    # Is important considerate the total of "Municipios"
 }
 
 features = []
@@ -38,10 +38,7 @@ while True:
 
 print(f"\nTotal de entidades descargadas: {len(features)}\n")
 
-geojson = {
-    "type": "FeatureCollection",
-    "features": features
-}
+geojson = {"type": "FeatureCollection", "features": features}
 
 # 👉 imprime en pantalla como texto JSON bonito
 print(json.dumps(geojson, indent=2, ensure_ascii=False))

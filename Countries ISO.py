@@ -13,14 +13,14 @@ if response.status_code == 200:
     with open("paises.csv", "wb") as f:
         f.write(response.content)
     print("El archivo se ha descargado correctamente como 'paises.csv'")
-    
+
     # Cargar el archivo CSV en un DataFrame
     df = pd.read_csv("paises.csv")
-    
+
     # Muestra una muestra del DataFrame (las primeras 5 filas)
     print("Muestra del contenido del archivo CSV:")
     print(df.head())
 else:
     print("No se pudo descargar el archivo. Código de estado:", response.status_code)
 
-df.to_csv("D:\Descargas\countries.csv", index = False)
+df.to_csv("D:\Descargas\countries.csv", index=False)

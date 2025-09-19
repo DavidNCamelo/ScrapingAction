@@ -1,8 +1,8 @@
-''' 
+"""
 Created By David Camelo on 08/01/2024
-'''
+"""
 
-#Code to extract GA zip codes for Sales tax report
+# Code to extract GA zip codes for Sales tax report
 # Import necessary libraries
 import requests
 import pandas as pd
@@ -12,13 +12,15 @@ from bs4 import BeautifulSoup as bs
 zip_GA_codes = "https://www.zipcodestogo.com/Georgia/"
 
 # Headers to mimic a browser visit (required for some websites to allow scraping)
-header = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36'}
+header = {
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36"
+}
 
 # Send an HTTP GET request to the website
 zips = requests.get(zip_GA_codes, headers=header)
 
 # Check the response status code (for debugging purposes)
-#print(zips)
+# print(zips)
 
 # Parse the HTML content of the response
 soup = bs(zips.text, "html.parser")

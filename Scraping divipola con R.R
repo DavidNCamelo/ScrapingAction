@@ -10,7 +10,9 @@ library(readxl)
 url <- "https://geoportal.dane.gov.co/descargas/divipola/DIVIPOLA_Municipios.xlsx"
 
 #En caso de ser necesario implementar los headers requeridos en scraping
-headers <- c("User-Agent" = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.149 Safari/537.36")
+headers <- c(
+  "User-Agent" = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.149 Safari/537.36"
+)
 
 #Revisar que el response esté correcto
 response <- GET(url, add_headers(headers))
@@ -25,4 +27,3 @@ writeBin(contenido, tmpfile)
 #crear el dataframe con el excel generado
 municipios <- read_xlsx(tmpfile, sheet = 1, range = "A11:G1132")
 municipios
-
