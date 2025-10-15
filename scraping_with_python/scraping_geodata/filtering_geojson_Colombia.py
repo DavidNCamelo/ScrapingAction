@@ -7,7 +7,6 @@ wihtout directly downloading dependency
 """
 
 import requests
-import json
 
 
 class ArcGISDownloader:

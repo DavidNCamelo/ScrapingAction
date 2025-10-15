@@ -1,3 +1,5 @@
 /scraping_geodata/base_data
 __pycache__
 *.geojson
+*.tif
+*.json
