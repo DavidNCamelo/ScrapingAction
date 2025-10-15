@@ -1,3 +1,3 @@
 /scraping_geodata/base_data
-/scraping_geodata/__pycache__
+__pycache__
 *.geojson
