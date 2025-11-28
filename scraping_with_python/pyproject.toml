@@ -13,5 +13,7 @@ dependencies = [
     "lxml",
     "geopandas",
     "argparse",
-    "rasterio"
+    "rasterio",
+    "dotenv>=0.9.9",
+    "webdriver-manager>=4.0.2",
 ]
