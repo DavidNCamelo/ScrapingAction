@@ -3,3 +3,5 @@ __pycache__
 *.geojson
 *.tif
 *.json
+*.env
+*.csv
