@@ -19,6 +19,13 @@ df = pd.read_csv(INPUT_VOCAB)
 # Drop "index" column
 df = df.drop(columns=["index"], errors="ignore")
 
+# -----------------------------------
+# REMOVE DUPLICATES (VOCAB LEVEL)
+# -----------------------------------
+df = df.drop_duplicates(
+    subset=["word", "category", "definition", "example"], keep="first"
+)
+
 
 # Extract url parts
 def extract_mission(url):
