@@ -59,6 +59,16 @@ if ("anio" %in% names(df)) {
 df <- df %>%
   filter(is.na(anio) | anio >= 2005)
 
+df <- df |>
+  select(
+    estacion_de_peaje,
+    anio,
+    mes,
+    codigo_estacion,
+    departamento,
+    starts_with(c("trafico", "evasores", "exentos"))
+  )
+
 # Revisar estructura
 str(df)
 head(df)
