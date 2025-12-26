@@ -2,6 +2,7 @@
 library(httr)
 library(jsonlite)
 library(dplyr)
+library(tidyr)
 library(lubridate)
 library(purrr)
 
@@ -67,6 +68,29 @@ df <- df |>
     codigo_estacion,
     departamento,
     starts_with(c("trafico", "evasores", "exentos"))
+  )
+
+# deleting columns
+df <- df |>
+  select(-ends_with('_total'))
+
+# Pivoting
+
+df <- df |>
+  pivot_longer(
+    cols = c(
+      starts_with("trafico_efectivo_"),
+      starts_with("evasores_unidad_"),
+      starts_with("exentos_ley_787_2002_")
+    ),
+    names_to = c(".value", "categoria"),
+    names_pattern = "(trafico_efectivo|evasores_unidad|exentos_ley_787_2002)_(.*)"
+  ) |>
+  mutate(
+    across(
+      c(trafico_efectivo, evasores_unidad, exentos_ley_787_2002),
+      ~ replace_na(as.numeric(.x), 0)
+    )
   )
 
 # Revisar estructura
