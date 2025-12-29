@@ -49,18 +49,13 @@ repeat {
 }
 
 # Unir todo en un solo data frame
-df <- bind_rows(all_data)
+df1 <- bind_rows(all_data)
 
 # Asegurar que 'anio' sea numérico
-if ("anio" %in% names(df)) {
-  df$anio <- as.integer(df$anio)
+if ("anio" %in% names(df1)) {
+  df1$anio <- as.integer(df1$anio)
 }
-
-# (Opcional) Filtrar desde 2005 por seguridad
-df <- df %>%
-  filter(is.na(anio) | anio >= 2005)
-
-df <- df |>
+df1 <- df1 |>
   select(
     estacion_de_peaje,
     anio,
@@ -71,12 +66,12 @@ df <- df |>
   )
 
 # deleting columns
-df <- df |>
+df2 <- df1 |>
   select(-ends_with('_total'))
 
 # Pivoting
 
-df <- df |>
+df2 <- df2 |>
   pivot_longer(
     cols = c(
       starts_with("trafico_efectivo_"),
@@ -94,8 +89,9 @@ df <- df |>
   )
 
 # Revisar estructura
-str(df)
-head(df)
+str(df1)
+str(df2)
+head(df2)
 
 # Guardar CSV si lo necesitas
 # write.csv(df, "D:/Descargas/data_tcfu_jngt.csv", row.names = FALSE)
