@@ -4,6 +4,7 @@ library(jsonlite)
 library(dplyr)
 library(lubridate)
 library(purrr)
+library(stringr)
 
 # URL base
 url <- "https://www.datos.gov.co/resource/8yi9-t44c.json"
@@ -70,6 +71,14 @@ if ("desde" %in% names(df)) {
 if ("hasta" %in% names(df)) {
   df$hasta <- as_date(df$hasta)
 }
+
+# Reorganizing columns
+df <- df |>
+  mutate(
+    anio = as.integer(year(desde)),
+    mes = str_to_title(month(desde, label = TRUE, abbr = FALSE))
+  ) |>
+  select(-desde, -hasta)
 
 # Verificación
 str(df)
