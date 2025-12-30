@@ -67,7 +67,15 @@ df1 <- df1 |>
 
 # deleting columns
 df2 <- df1 |>
-  select(-ends_with('_total'))
+  select(
+    -c(
+      ends_with('_total'),
+      'exentos_emergencia_vial_cat',
+      'exentos_res0000015_koran',
+      'exentos_emergencia_vial_cat_1',
+      'exentos_res0000015_koran_1'
+    )
+  )
 
 # Pivoting
 
@@ -85,7 +93,8 @@ df2 <- df2 |>
     across(
       c(trafico_efectivo, evasores_unidad, exentos_ley_787_2002),
       ~ replace_na(as.numeric(.x), 0)
-    )
+    ),
+    categoria = toupper(categoria)
   )
 
 # Revisar estructura
