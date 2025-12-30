@@ -95,6 +95,11 @@ df2 <- df2 |>
       ~ replace_na(as.numeric(.x), 0)
     ),
     categoria = toupper(categoria)
+  ) |>
+  rename(
+    cantidadtrafico = trafico_efectivo,
+    cantidadevasores = evasores_unidad,
+    cantidadexentos787 = exentos_ley_787_2002
   )
 
 # Revisar estructura
